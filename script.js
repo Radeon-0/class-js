@@ -1,19 +1,29 @@
-const title = "Алтай";
-const screens = "Простые, Сложные, Интерактивные";
-const screenPrice = "3500";
-const rollback = "55";
-const fullPrice = "100000";
-const adaptive = true;
+const title = prompt("Как называется ваш проект?");
+const screens = prompt("Какие типы экранов нужно разработать?");
+const screenPrice = Number(prompt("Сколько будет стоить данная работа?"));
+const adaptive = confirm("Нужен ли адаптив на сайте?");
 
-console.log(typeof title);
-console.log(typeof fullPrice);
-console.log(typeof adaptive);
-console.log(screens.length);
+const service1 = prompt("Какой дополнительный тип услуги нужен?");
+const servicePrice1 = Number(prompt("Сколько это будет стоить?"));
 
+const service2 = prompt("Какой дополнительный тип услуги нужен?");
+const servicePrice2 = Number(prompt("Сколько это будет стоить?"));
 
-console.log("Стоимость верстки экранов " + screenPrice + " рублей");
-console.log("Стоимость разработки сайта " + fullPrice + " рублей");
+const fullPrice = screenPrice + servicePrice1 + servicePrice2;
 
-console.log(screens.toLowerCase().split(", "));
+const rollback = 10;
+const servicePercentPrice = Math.ceil(fullPrice - fullPrice * (rollback / 100));
 
-console.log(fullPrice * (rollback / 100));
+console.log("за вычетом отката посреднику:", servicePercentPrice);
+
+if (fullPrice > 30000) {
+    console.log("Даем скидку в 10%");
+} else if (fullPrice > 15000 && fullPrice < 30000) {
+    console.log("Даем скидку в 5%");
+} else if (fullPrice > 0 && fullPrice < 15000) {
+    console.log("Скидка не предусмотрена");
+} else if (fullPrice < 0) {
+    console.log("Что то пошло не так");
+} else {
+    console.log("Скидка не предусмотрена");
+}
