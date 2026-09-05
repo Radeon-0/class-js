@@ -1,5 +1,7 @@
 "use strict";
 
+function startGame() {
+
 const randomNumber = Math.floor(Math.random() * 100) + 1;
 
 function guessNumber() {
@@ -36,3 +38,6 @@ function guessNumber() {
 }
 
 guessNumber();
+}
+
+startGame();
