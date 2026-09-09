@@ -112,11 +112,3 @@ const appData = {
 appData.start();
 
 
-
-let ls = "2108";
-
-if (!Number(ls)) {
-  console.log("test1")
-} else {
-  console.log("test2");
-}
